@@ -73,8 +73,8 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
             component="svg"
             viewBox="0 0 72 72"
             sx={{
-              width: 30,
-              height: 30,
+              width: 56,
+              height: 56,
               mb: -1
             }}
           >
