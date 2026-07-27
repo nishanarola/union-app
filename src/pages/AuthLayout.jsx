@@ -65,7 +65,7 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
           py: { xs: 6, md: 0 },
           position: 'relative',
           overflow: 'hidden',
-          backgroundImage: `radial-gradient(circle at 70% 8%, rgba(31, 93, 126, 0.35) 0%, rgba(28,37,65,0) 55%)`
+         backgroundImage: `radial-gradient(circle at 70% 8%, rgba(31, 93, 126, 0.35) 0%, rgba(28,37,65,0) 55%)`
         }}
       >
         <Stack spacing={4} alignItems="center" sx={{ zIndex: 1 }}>
@@ -85,7 +85,7 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
               strokeWidth="6"
               strokeLinecap="round"
             />
-            <circle cx="36" cy="60" r="3" fill="#7EA8BE" />
+            <circle cx="36" cy="60" r="3" fill={tokens.pen === tokens.pen ? '#7EA8BE' : tokens.pen} />
           </Box>
           <Typography variant="h1" sx={{ fontSize: { xs: '2.4rem', md: '3rem' } }}>
             Union
@@ -101,10 +101,10 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
       </Box>
       <Box
         component="svg"
+        width="90"
+        height="90"
         viewBox="0 0 72 72"
         sx={{
-          width: 90,
-          height: 90,
           position: 'absolute',
           bottom: 24,
           left: 24,
