@@ -85,8 +85,6 @@ export default function Signup() {
       return;
     }
 
-    // Day 2 owns the "real" mock-database wiring into localStorage.
-    // Storing here too so Login already has something to authenticate against.
     localStorage.setItem(
       'union_user',
       JSON.stringify({ name: form.name, email: form.email, password: form.password })

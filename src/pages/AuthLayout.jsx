@@ -74,7 +74,7 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
           <FlashcardStack />
           <Box sx={{ textAlign: 'center', maxWidth: 320 }}>
             <Typography variant="body1" sx={{ opacity: 0.85 }}>
-              Interview practice, exam prep, and resume feedback — pulled together
+              Interview practice, exam prep, and resume feedback pulled together
               like a deck of cards you actually want to study from.
             </Typography>
           </Box>

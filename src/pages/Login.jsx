@@ -49,9 +49,6 @@ export default function Login() {
       return;
     }
 
-    // Day 2 will wire this up to the localStorage mock database and
-    // real credential matching. For now, this just proves the validated
-    // submit path works end-to-end.
     const storedUser = JSON.parse(localStorage.getItem('union_user') || 'null');
     if (!storedUser || storedUser.email !== form.email) {
       setSnackbar({ open: true, message: 'No account found for that email yet — try signing up.', severity: 'error' });

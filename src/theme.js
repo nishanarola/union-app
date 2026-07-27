@@ -1,14 +1,11 @@
 import { createTheme } from '@mui/material/styles';
 
-// Design tokens for "Union" — a student's flashcard-deck aesthetic.
-// Ink navy + warm parchment + amber highlighter, instead of the usual
-// generic SaaS blue/purple gradient.
 export const tokens = {
-  ink: '#1C2541',        // deep navy-ink, dark surfaces & primary text
-  parchment: '#F7F3E9',  // warm paper background
-  highlighter: '#FFC857',// amber highlighter accent (primary CTA)
-  pen: '#E4572E',        // coral pen accent (links, focus)
-  graphite: '#5C6079',   // muted secondary text
+  ink: '#1C2541',      
+  parchment: '#F7F3E9',  
+  highlighter: '#FFC857',
+  pen: '#E4572E',        
+  graphite: '#5C6079',   
   success: '#2D6A4F',
   hairline: '#DED6C3'
 };
