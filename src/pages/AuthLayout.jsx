@@ -71,8 +71,8 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
         <Stack spacing={4} alignItems="center" sx={{ zIndex: 1 }}>
           <Box
             component="svg"
-            width="56"
-            height="56"
+            width="30"
+            height="30"
             viewBox="0 0 72 72"
             sx={{ mb: -1 }}
           >
