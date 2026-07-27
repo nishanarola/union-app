@@ -3,10 +3,6 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { tokens } from '../theme';
 
-// The signature element: a slightly-fanned stack of index cards,
-// each labelled with one of Union's three pillars. It's the one visual
-// idea the whole auth experience is built around — a student's flashcard
-// deck, tilted like it was just pulled from a bag.
 function FlashcardStack() {
   const cards = [
     { label: 'Mock Interview', rotate: -8, top: 0, accent: tokens.pen },
@@ -56,7 +52,6 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
         flexDirection: { xs: 'column', md: 'row' }
       }}
     >
-      {/* Left panel — brand + signature visual, hidden on small screens' scroll but shown as a header */}
       <Box
         sx={{
           bgcolor: tokens.ink,
@@ -86,7 +81,6 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
         </Stack>
       </Box>
 
-      {/* Right panel — form */}
       <Box
         sx={{
           flex: 1,

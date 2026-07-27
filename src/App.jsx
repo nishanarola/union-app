@@ -9,7 +9,6 @@ export default function App() {
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      {/* Route guarding against unauthenticated access lands properly on Day 2 */}
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
