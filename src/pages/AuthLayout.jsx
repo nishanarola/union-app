@@ -77,7 +77,7 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
               strokeWidth="6"
               strokeLinecap="round"
             />
-            <circle cx="25" cy="25" r="3" fill="#7EA8BE" />
+            <circle cx="36" cy="60" r="3" fill="#7EA8BE" />
           </Box>
           <Typography variant="h1" sx={{ fontSize: { xs: '2.4rem', md: '3rem' } }}>
             Union
@@ -91,28 +91,28 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
           </Box>
         </Stack>
       </Box>
-        <Box
-          component="svg"
-          width="90"
-          height="90"
-          viewBox="0 0 72 72"
-          sx={{
-            position: 'absolute',
-            bottom: 24,
-            left: 24,
-            opacity: 0.12,
-            pointerEvents: 'none',
-            zIndex: 0
-          }}
-        >
-          <path
-            d="M18 14 L18 42 C18 54 27 60 36 60 C45 60 54 54 54 42 L54 14"
-            fill="none"
-            stroke={tokens.parchment}
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-        </Box>
+      <Box
+        component="svg"
+        width="90"
+        height="90"
+        viewBox="0 0 72 72"
+        sx={{
+          position: 'absolute',
+          bottom: 24,
+          left: 24,
+          opacity: 0.12,
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      >
+        <path
+          d="M18 14 L18 42 C18 54 27 60 36 60 C45 60 54 54 54 42 L54 14"
+          fill="none"
+          stroke={tokens.parchment}
+          strokeWidth="6"
+          strokeLinecap="round"
+        />
+      </Box>
       <Box
         sx={{
           flex: 1,
