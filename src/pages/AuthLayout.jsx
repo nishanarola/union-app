@@ -64,7 +64,8 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
           px: 5,
           py: { xs: 6, md: 0 },
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          backgroundImage: `radial-gradient(circle at 70% 8%, rgba(45,138,138,0.6) 0%, rgba(28,37,65,0) 55%)`
         }}
       >
         <Stack spacing={4} alignItems="center" sx={{ zIndex: 1 }}>
