@@ -69,7 +69,7 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
         }}
       >
         <Stack spacing={4} alignItems="center" sx={{ zIndex: 1 }}>
-          <Box component="svg" width="36" height="36" viewBox="0 0 72 72" sx={{ mb: -1 }}>
+          <Box component="svg" width="25" height="25" viewBox="0 0 72 72" sx={{ mb: -1 }}>
             <path
               d="M18 14 L18 42 C18 54 27 60 36 60 C45 60 54 54 54 42 L54 14"
               fill="none"
@@ -77,7 +77,7 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
               strokeWidth="6"
               strokeLinecap="round"
             />
-            <circle cx="36" cy="60" r="3" fill="#7EA8BE" />
+            <circle cx="25" cy="25" r="3" fill="#7EA8BE" />
           </Box>
           <Typography variant="h1" sx={{ fontSize: { xs: '2.4rem', md: '3rem' } }}>
             Union
