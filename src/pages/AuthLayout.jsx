@@ -72,7 +72,7 @@ export default function AuthLayout({ eyebrow, title, subtitle, children }) {
           <Typography variant="h1" sx={{ fontSize: { xs: '2.4rem', md: '3rem' } }}>
             Union
           </Typography>
-          <FlashcardStack />
+          {/* <FlashcardStack /> */}
           <Box sx={{ textAlign: 'center', maxWidth: 320 }}>
             <Typography variant="body1" sx={{ opacity: 0.85 }}>
               Interview practice, exam prep, and resume feedback pulled together
