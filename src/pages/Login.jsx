@@ -49,15 +49,22 @@ export default function Login() {
       return;
     }
 
-    const storedUser = JSON.parse(localStorage.getItem('union_user') || 'null');
-    if (!storedUser || storedUser.email !== form.email) {
+    const existingUsers = JSON.parse(localStorage.getItem('union_users')) || [];
+
+    const matchedUser = existingUsers.find(
+      (user) => user.email.toLowerCase() === form.email.toLowerCase()
+    );
+
+    if (!matchedUser) {
       setSnackbar({ open: true, message: 'No account found for that email yet — try signing up.', severity: 'error' });
       return;
     }
-    if (storedUser.password !== form.password) {
+    if (matchedUser.password !== form.password) {
       setSnackbar({ open: true, message: 'Incorrect password.', severity: 'error' });
       return;
     }
+
+    localStorage.setItem('currentUser', JSON.stringify(matchedUser));
 
     setSnackbar({ open: true, message: 'Welcome back!', severity: 'success' });
     navigate('/dashboard');

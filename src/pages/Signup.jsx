@@ -85,10 +85,20 @@ export default function Signup() {
       return;
     }
 
-    localStorage.setItem(
-      'union_user',
-      JSON.stringify({ name: form.name, email: form.email, password: form.password })
+   const existingUsers = JSON.parse(localStorage.getItem('union_users')) || [];
+
+    const emailExists = existingUsers.some(
+      (user) => user.email.toLowerCase() === form.email.toLowerCase()
     );
+
+    if (emailExists) {
+      setSnackbar({ open: true, message: 'This email is already registered. Please log in.', severity: 'error' });
+      return;
+    }
+
+    const newUser = { name: form.name, email: form.email, password: form.password };
+    const updatedUsers = [...existingUsers, newUser];
+    localStorage.setItem('union_users', JSON.stringify(updatedUsers));
 
     setSnackbar({ open: true, message: 'Account created — welcome to Union!', severity: 'success' });
     navigate('/login');
