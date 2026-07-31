@@ -2,18 +2,28 @@ import { useState, useRef, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import ChatBubble from './ChatBubble';
 import ChatInput from './ChatInput';
+import TypingIndicator from './TypingIndicator';
+import { getAIResponse } from '../utils/mockAI';
 
 export default function ChatWindow({ initialMessages = [] }) {
   const [messages, setMessages] = useState(initialMessages);
+  const [isTyping, setIsTyping] = useState(false);
   const bottomRef = useRef(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  }, [messages, isTyping]);
 
-  const handleSend = (text) => {
+  const handleSend = async (text) => {
     const userMessage = { sender: 'user', text };
     setMessages((prev) => [...prev, userMessage]);
+
+    setIsTyping(true);
+    const aiReply = await getAIResponse(text);
+    setIsTyping(false);
+
+    const aiMessage = { sender: 'ai', text: aiReply };
+    setMessages((prev) => [...prev, aiMessage]);
   };
 
   return (
@@ -26,29 +36,21 @@ export default function ChatWindow({ initialMessages = [] }) {
           px: 1,
           py: 2,
           minHeight: 0,
-          '&::-webkit-scrollbar': {
-            width: '6px'
-          },
-          '&::-webkit-scrollbar-track': {
-            background: 'transparent'
-          },
-          '&::-webkit-scrollbar-thumb': {
-            background: 'rgba(0,0,0,0.15)',
-            borderRadius: '10px'
-          },
-          '&::-webkit-scrollbar-thumb:hover': {
-            background: 'rgba(0,0,0,0.25)'
-          }
+          '&::-webkit-scrollbar': { width: '6px' },
+          '&::-webkit-scrollbar-track': { background: 'transparent' },
+          '&::-webkit-scrollbar-thumb': { background: 'rgba(0,0,0,0.15)', borderRadius: '10px' },
+          '&::-webkit-scrollbar-thumb:hover': { background: 'rgba(0,0,0,0.25)' }
         }}
       >
         {messages.map((msg, i) => (
           <ChatBubble key={i} sender={msg.sender} text={msg.text} />
         ))}
+        {isTyping && <TypingIndicator />}
         <div ref={bottomRef} />
       </Box>
 
       <Box sx={{ pt: 2, width: '100%' }}>
-        <ChatInput onSend={handleSend} />
+        <ChatInput onSend={handleSend} disabled={isTyping} />
       </Box>
     </Box>
   );

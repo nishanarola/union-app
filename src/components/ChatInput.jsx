@@ -5,10 +5,11 @@ import IconButton from '@mui/material/IconButton';
 import SendIcon from '@mui/icons-material/Send';
 import { tokens } from '../theme';
 
-export default function ChatInput({ onSend }) {
+export default function ChatInput({ onSend, disabled = false }) {
   const [message, setMessage] = useState('');
 
   const handleSend = () => {
+    if (disabled) return;
     const trimmed = message.trim();
     if (!trimmed) return;
     onSend(trimmed);
@@ -31,14 +32,17 @@ export default function ChatInput({ onSend }) {
         bgcolor: '#F8F6F0',
         borderRadius: 99,
         px: 2,
-        py: 1
+        py: 1,
+        opacity: disabled ? 0.6 : 1,
+        transition: 'opacity 0.2s ease'
       }}
     >
       <TextField
-        placeholder="Type your message..."
+        placeholder={disabled ? 'Waiting for reply...' : 'Type your message...'}
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
+        disabled={disabled}
         fullWidth
         multiline
         maxRows={4}
@@ -48,7 +52,7 @@ export default function ChatInput({ onSend }) {
       />
       <IconButton
         onClick={handleSend}
-        disabled={!message.trim()}
+        disabled={disabled || !message.trim()}
         sx={{
           bgcolor: tokens.pen,
           color: '#FFFFFF',
