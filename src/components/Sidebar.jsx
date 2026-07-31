@@ -16,7 +16,7 @@ const navItems = [
   { label: 'Resume Builder', path: '/dashboard/resume', icon: DescriptionIcon }
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ onNavigate }) {
   const location = useLocation();
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
@@ -90,6 +90,7 @@ export default function Sidebar() {
               key={item.path}
               component={NavLink}
               to={item.path}
+              onClick={() => onNavigate?.()}
               sx={{
                 textDecoration: 'none',
                 display: 'flex',
