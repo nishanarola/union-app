@@ -5,14 +5,26 @@ import ChatInput from './ChatInput';
 import TypingIndicator from './TypingIndicator';
 import { getAIResponse } from '../utils/mockAI';
 
-export default function ChatWindow({ initialMessages = [] }) {
-  const [messages, setMessages] = useState(initialMessages);
+export default function ChatWindow({ initialMessages = [], storageKey }) {
+  const [messages, setMessages] = useState(() => {
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved) return JSON.parse(saved);
+    } catch {
+      // ignore parse errors, fall back to initial
+    }
+    return initialMessages;
+  });
   const [isTyping, setIsTyping] = useState(false);
   const bottomRef = useRef(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
+
+  useEffect(() => {
+    localStorage.setItem(storageKey, JSON.stringify(messages));
+  }, [messages, storageKey]);
 
   const handleSend = async (text) => {
     const userMessage = { sender: 'user', text };

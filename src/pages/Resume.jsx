@@ -3,6 +3,9 @@ import Typography from '@mui/material/Typography';
 import ChatWindow from '../components/ChatWindow';
 
 export default function Resume() {
+  const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+  const storageKey = `chat_${user?.email || 'guest'}_resume`;
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%', minHeight: 0 }}>
       <Typography variant="h5" sx={{ mb: 2, fontWeight: 700 }}>
@@ -13,6 +16,7 @@ export default function Resume() {
           initialMessages={[
             { sender: 'ai', text: "Share your current resume details or ask me anything about improving it!" }
           ]}
+          storageKey={storageKey}
         />
       </Box>
     </Box>
